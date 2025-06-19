@@ -330,11 +330,11 @@ export const TaskbarManager: React.FC<Props> = ({
                   width="40"
                   height="26"
                   rx="3"
-                  fill="#FBC02D"
+                  fill="#B0B0B0"
                 />
                 <path
                   d="M4 17a3 3 0 0 1 3-3h10l3 4h21a3 3 0 0 1 3 3v16a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V17z"
-                  fill="#FFD54F"
+                  fill="#A0A0A0"
                 />
                 <rect
                   x="4"
@@ -342,9 +342,10 @@ export const TaskbarManager: React.FC<Props> = ({
                   width="40"
                   height="6"
                   rx="3"
-                  fill="#FFF9C4"
+                  fill="#D3D3D3"
                 />
               </svg>
+
             )}
             {item.isOpen && (
               <span

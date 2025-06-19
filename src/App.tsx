@@ -43,6 +43,8 @@ const App = () => {
         initialPosition={{ top: 20, left: window.innerWidth - 100 }}
       />
       <TaskbarManager
+        indicatorStyle={{ backgroundColor: customUI ? "red" : "" }}
+        indicatorMinimizedStyle={{ backgroundColor: customUI ? "rgba(255, 0, 0, 0.3)" : "" }}
         targetKey="1"
         taskButtonStyle={customUI ? customButtonTaskbarStyle : {}}
         style={customUI ? customTaskbarStyle : {}} />

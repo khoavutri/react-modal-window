@@ -259,7 +259,6 @@ export const TaskbarManager: React.FC<Props> = ({
   if (data.length === 0) {
     return null;
   }
-  console.log(position);
 
   return (
     <div

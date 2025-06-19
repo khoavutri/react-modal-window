@@ -1,7 +1,8 @@
 import { useState } from "react";
-import RecursiveAlgorithm from "./RecursiveAlgorithm";
 import { TaskbarManager } from "../lib/main";
 import "./App.css";
+import DemoModal from "./DemoModal";
+
 const App = () => {
   const [showOverlay, setShowOverlay] = useState(true);
   const [count, setCount] = useState(1);
@@ -84,7 +85,7 @@ const App = () => {
       </div>
 
       {arrayFromCount.map((item) => (
-        <RecursiveAlgorithm
+        <DemoModal
           showOverlay={showOverlay}
           key={item}
           index={item}

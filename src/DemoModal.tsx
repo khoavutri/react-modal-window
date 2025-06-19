@@ -1,7 +1,7 @@
 import { memo, useEffect } from "react";
 import { Overlay, ReactWindowModal, useModal } from "../lib/main";
 
-const RecursiveAlgorithm = ({
+const DemoModal = ({
   showOverlay,
   setCount,
   index,
@@ -59,4 +59,4 @@ const RecursiveAlgorithm = ({
   );
 };
 
-export default memo(RecursiveAlgorithm);
+export default memo(DemoModal);

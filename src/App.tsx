@@ -79,7 +79,7 @@ const App = () => {
         <button
           className="npm"
           onClick={() => {
-            window.open("https://www.npmjs.com", "_blank");
+            window.open("https://www.npmjs.com/package/react-modal-windows", "_blank");
           }}
         >
           NPM

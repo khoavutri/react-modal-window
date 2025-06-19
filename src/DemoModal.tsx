@@ -55,7 +55,7 @@ const DemoModal = ({
           Add more
         </button>
       </div>
-    </ReactWindowModal>
+    </ReactWindowModal >
   );
 };
 

@@ -23,6 +23,10 @@ export type ReactWindowModalProps = {
   maximizeIcon?: React.ReactNode;
   restoreIcon?: React.ReactNode;
   taskbarIcon?: React.ReactNode;
+  onCloseClick?: () => void;
+  onMinimizeClick?: () => void;
+  onMaximizeClick?: () => void;
+  onRestoreClick?: () => void;
 };
 
 export const ReactWindowModal = ({
@@ -39,6 +43,10 @@ export const ReactWindowModal = ({
   maximizeIcon,
   restoreIcon,
   taskbarIcon,
+  onCloseClick,
+  onMinimizeClick,
+  onMaximizeClick,
+  onRestoreClick,
 }: ReactWindowModalProps) => {
   const [border, setBorder] = useState({
     top: 0,
@@ -130,9 +138,8 @@ export const ReactWindowModal = ({
             <div className={styles.buttonContainer}>
               <button
                 className={styles.iconButton}
-                aria-label="Ẩn modal"
                 type="button"
-                onClick={() => modal.setIsMinimized((prev) => !prev)}
+                onClick={() => onMinimizeClick ? onMinimizeClick() : modal.setIsMinimized((prev) => !prev)}
               >
                 {minimizeIcon || (
                   <svg
@@ -158,9 +165,8 @@ export const ReactWindowModal = ({
               {!modal.isMaximized && (
                 <button
                   className={styles.iconButton}
-                  aria-label="Phóng to modal"
                   onClick={() => {
-                    modal.setIsMaximized((prev) => !prev);
+                    onMaximizeClick ? onMaximizeClick() : modal.setIsMaximized((prev) => !prev);
                   }}
                   type="button"
                 >
@@ -183,9 +189,8 @@ export const ReactWindowModal = ({
               {modal.isMaximized && (
                 <button
                   className={styles.iconButton}
-                  aria-label="Thu nhỏ modal"
                   onClick={() => {
-                    modal.setIsMaximized((prev) => !prev);
+                    onRestoreClick ? onRestoreClick() : modal.setIsMaximized((prev) => !prev);
                   }}
                   type="button"
                 >
@@ -197,17 +202,19 @@ export const ReactWindowModal = ({
                       viewBox="0 0 20 20"
                       fill="none"
                       stroke="currentColor"
-                      strokeWidth="2"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
-                      <rect x="5" y="5" width="10" height="10" rx="2" />
+                      <rect x="6" y="6" width="10" height="10" rx="1" />
+                      <path d="M4 4h8v2H6v8H4z" />
                     </svg>
                   )}
                 </button>
               )}
               <button
-                onClick={modal.toggle}
+                onClick={onCloseClick ? onCloseClick : modal.toggle}
                 className={styles.iconButton}
-                aria-label="Đóng modal"
               >
                 {closeIcon || (
                   <svg

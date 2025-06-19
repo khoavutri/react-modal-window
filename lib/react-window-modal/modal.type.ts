@@ -73,6 +73,26 @@ export type ModalContext = {
     setTitle: Dispatch<React.SetStateAction<string>>;
 };
 
+export type ReactWindowModalProps = {
+    modal: ModalContext;
+    title?: string;
+    children: React.ReactNode;
+    className?: string;
+    style?: React.CSSProperties;
+    headerStyle?: React.CSSProperties;
+    titleStyle?: React.CSSProperties;
+    contentStyle?: React.CSSProperties;
+    closeIcon?: React.ReactNode;
+    minimizeIcon?: React.ReactNode;
+    maximizeIcon?: React.ReactNode;
+    restoreIcon?: React.ReactNode;
+    taskbarIcon?: React.ReactNode;
+    onCloseClick?: () => void;
+    onMinimizeClick?: () => void;
+    onMaximizeClick?: () => void;
+    onRestoreClick?: () => void;
+};
+
 export type Listener = () => void;
 
 export type ModalManager = {

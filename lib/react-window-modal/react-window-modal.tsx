@@ -6,28 +6,8 @@ import React, {
   useState,
 } from "react";
 import styles from "./style.module.css";
-import { ModalContext } from "./modal.type";
+import { ReactWindowModalProps } from "./modal.type";
 import { Overlay } from "./overlay";
-
-export type ReactWindowModalProps = {
-  modal: ModalContext;
-  title?: string;
-  children: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-  headerStyle?: React.CSSProperties;
-  titleStyle?: React.CSSProperties;
-  contentStyle?: React.CSSProperties;
-  closeIcon?: React.ReactNode;
-  minimizeIcon?: React.ReactNode;
-  maximizeIcon?: React.ReactNode;
-  restoreIcon?: React.ReactNode;
-  taskbarIcon?: React.ReactNode;
-  onCloseClick?: () => void;
-  onMinimizeClick?: () => void;
-  onMaximizeClick?: () => void;
-  onRestoreClick?: () => void;
-};
 
 export const ReactWindowModal = ({
   modal,

@@ -3,6 +3,7 @@ import {
   defaultMinSize,
   ModalConfig,
   ModalContext,
+  Position,
   ResizeDirection,
 } from "./modal.type";
 import { v4 as uuidv4 } from "uuid";
@@ -12,7 +13,7 @@ export const useModal = (config?: ModalConfig): ModalContext => {
   const id = idRef.current;
 
   const initalZIndex =
-    config && config.initalZIndex ? config.initalZIndex : 1001;
+    config && config.initialZIndex ? config.initialZIndex : 1001;
 
   const minSize = config && config.minSize ? config.minSize : defaultMinSize;
   const ref = useRef<HTMLDivElement>(null);
@@ -26,7 +27,7 @@ export const useModal = (config?: ModalConfig): ModalContext => {
       ? config.defaultSize
       : { width: 400, height: 240 }
   );
-  const [position, setPosition] = useState({ top: 0, left: 0 });
+  const [position, setPosition] = useState<Position | null>(null);
   const [isMaximized, setIsMaximized] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [taskbarIcon, setTaskbarIcon] = useState<ReactNode>(null)
@@ -51,8 +52,8 @@ export const useModal = (config?: ModalConfig): ModalContext => {
       startSize.current = {
         width: size.width,
         height: size.height,
-        top: position.top,
-        left: position.left,
+        top: position?.top || 0,
+        left: position?.left || 0,
       };
 
       const onMouseMove = (ev: MouseEvent) => {
@@ -128,8 +129,8 @@ export const useModal = (config?: ModalConfig): ModalContext => {
       dragStart.current = {
         x: e.clientX,
         y: e.clientY,
-        top: position.top,
-        left: position.left,
+        top: position?.top || 0,
+        left: position?.left || 0,
       };
 
       const onMouseMove = (ev: MouseEvent) => {
@@ -166,9 +167,9 @@ export const useModal = (config?: ModalConfig): ModalContext => {
   );
 
   useEffect(() => {
-    if (isOpen && ref.current) {
+    if (isOpen && ref.current && !position) {
       const rect = ref.current.getBoundingClientRect();
-      setPosition({
+      setPosition(config?.initialPosition || {
         top: Math.max(0, (window.innerHeight - rect.height) / 2),
         left: Math.max(0, (window.innerWidth - rect.width) / 2),
       });
@@ -205,7 +206,7 @@ export const useModal = (config?: ModalConfig): ModalContext => {
     setOpen,
     size,
     setSize,
-    position,
+    position: position || { top: 0, left: 0 },
     setPosition,
     onResizeMouseDown,
     onHeaderMouseDown,

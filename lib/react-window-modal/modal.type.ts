@@ -37,8 +37,9 @@ export type ModalConfig = {
     defaultOpen?: boolean;
     minSize?: Size;
     defaultSize?: Size;
-    initalZIndex?: number;
+    initialZIndex?: number;
     targetKey?: string;
+    initialPosition?: Position;
 };
 
 export const defaultMinSize = {
@@ -56,7 +57,7 @@ export type ModalContext = {
     size: Size;
     setSize: Dispatch<React.SetStateAction<Size>>;
     position: Position;
-    setPosition: Dispatch<React.SetStateAction<Position>>;
+    setPosition: Dispatch<React.SetStateAction<Position | null>>;
     onResizeMouseDown: (e: React.MouseEvent, direction: ResizeDirection) => void;
     onHeaderMouseDown: (e: React.MouseEvent) => void;
     minSize: Size;

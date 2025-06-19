@@ -70,7 +70,7 @@ const App = () => {
         <button
           className="github"
           onClick={() => {
-            window.open("https://github.com/khoavutri/react-window-modal", "_blank");
+            window.open("https://github.com/khoavutri/react-modal-window", "_blank");
           }}
         >
           Github

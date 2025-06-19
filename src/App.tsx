@@ -1,25 +1,63 @@
-import { useState } from 'react';
-import { ReactWindowModal } from '../lib/react-window-modal/react-window-modal';
-
+import { useState } from "react";
+import RecursiveAlgorithm from "./RecursiveAlgorithm";
+import { TaskbarManager } from "../lib/main";
+import "./App.css";
 const App = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(true);
+  const [count, setCount] = useState(1);
+  const arrayFromCount = Array(count)
+    .fill(null)
+    .map((_, index) => index + 1);
 
   return (
-    <div>
-      <button
-        onClick={() => setIsModalOpen(true)}
-        className="bg-blue-500 text-white px-4 py-2 rounded"
-      >
-        Open Modal
-      </button>
-      <ReactWindowModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        title="My Modal"
-        showOverlay={false}
-      >
-        <p>This is the modal content.</p>
-      </ReactWindowModal>
+    <div style={{ position: "relative" }}>
+      <TaskbarManager targetKey="4" />
+      <div className="overlay-buttons">
+        <button
+          className="show-overlay"
+          onClick={() => {
+            setShowOverlay((prev) => !prev);
+          }}
+        >
+          show Overlay
+        </button>
+
+        <button
+          className="custom-ui"
+          onClick={() => {
+            setShowOverlay((prev) => !prev);
+          }}
+        >
+          Custom ui
+        </button>
+
+        <button
+          className="github"
+          onClick={() => {
+            window.open("https://github.com", "_blank");
+          }}
+        >
+          Github
+        </button>
+
+        <button
+          className="npm"
+          onClick={() => {
+            window.open("https://www.npmjs.com", "_blank");
+          }}
+        >
+          NPM
+        </button>
+      </div>
+
+      {arrayFromCount.map((item) => (
+        <RecursiveAlgorithm
+          showOverlay={showOverlay}
+          key={item}
+          index={item}
+          setCount={setCount}
+        />
+      ))}
     </div>
   );
 };

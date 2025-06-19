@@ -1,4 +1,4 @@
-# 🚀 [React Modal Window](https://www.npmjs.com/package/react-modal-windows)
+# 🚀 [React Modal Windows](https://www.npmjs.com/package/react-modal-windows)
 
 ## 📦 **Owned by:** [Vu Tri Khoa](https://github.com/khoavutri) 
 

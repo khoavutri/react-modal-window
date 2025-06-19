@@ -1,8 +1,8 @@
-# 🚀 [React Modal Window](https://www.npmjs.com/package/react-modal-window)
+# 🚀 [React Modal Window](https://www.npmjs.com/package/react-modal-windows)
 
 ## 📦 **Owned by:** [Vu Tri Khoa](https://github.com/khoavutri) 
 
-`react-modal-window` is a lightweight, customizable, and feature-rich React library for creating draggable, resizable, and manageable modal windows. It supports a taskbar for minimized modals, z-index management, and flexible configurations, making it ideal for building desktop-like interfaces or complex UI workflows in web applications.
+`react-modal-windows` is a lightweight, customizable, and feature-rich React library for creating draggable, resizable, and manageable modal windows. It supports a taskbar for minimized modals, z-index management, and flexible configurations, making it ideal for building desktop-like interfaces or complex UI workflows in web applications.
 
 ## ✨ Features
 
@@ -15,22 +15,22 @@
 
 ## 📜 Demo
 
-Explore `react-modal-window` in action! The demo showcases draggable, resizable modals with a taskbar for managing minimized windows, mimicking a desktop-like interface.
+Explore `react-modal-windows` in action! The demo showcases draggable, resizable modals with a taskbar for managing minimized windows, mimicking a desktop-like interface.
 
-📺 **Live Demo**: [react-modal-window](https://react-modal-window.vercel.app/) *(Update with your actual demo link)*
+📺 **Live Demo**: [react-modal-windows](https://react-modal-windows.vercel.app/) *(Update with your actual demo link)*
 
 ## 🖼️ **Screenshot**: Coming soon...
 
 ## 📜 API
 
-The `react-modal-window` library provides a powerful API for creating and managing modal windows in React applications. Below is an overview of the key components, hooks, and configuration options.
+The `react-modal-windows` library provides a powerful API for creating and managing modal windows in React applications. Below is an overview of the key components, hooks, and configuration options.
 
 ### Installation
 
 Install via npm:
 
 ```bash
-npm install react-modal-window
+npm install react-modal-windows
 ```
 
 *Note: The `uuid` package is a dependency and will be automatically installed.*
@@ -41,7 +41,7 @@ Create a modal window with the `useModal` hook and `ReactWindowModal` component:
 
 ```javascript
 import React from "react";
-import { useModal, ReactWindowModal, TaskbarManager } from "react-modal-window";
+import { useModal, ReactWindowModal, TaskbarManager } from "react-modal-windows";
 
 const App = () => {
   const modal = useModal({ defaultOpen: true, defaultSize: { width: 600, height: 400 } });
@@ -69,7 +69,7 @@ export default App;
 
 ### Configuration Options
 
-The `react-modal-window` library leverages the `useModal` hook, `ReactWindowModal` component, `Overlay` component, and `TaskbarManager` component to create and manage modal windows. Below are the key configuration options.
+The `react-modal-windows` library leverages the `useModal` hook, `ReactWindowModal` component, `Overlay` component, and `TaskbarManager` component to create and manage modal windows. Below are the key configuration options.
 
 #### `useModal` Hook Configuration
 
@@ -244,12 +244,12 @@ This example:
 - Customizes the taskbar and modal styles.
 - Allows opening the second modal via a button.
 
-For a complete API reference, see the [GitHub repository](https://github.com/khoavutri/react-modal-window).
+For a complete API reference, see the [GitHub repository](https://github.com/khoavutri/react-modal-windows).
 
 ---
 
 ## 📞 Support
 
 💌 **Email:** Reach out to me at [khoavutri@gmail.com](mailto:khoavutri@gmail.com)  
-🐛 **GitHub Issues:** Found a bug or have a suggestion? [Open an issue here](https://github.com/khoavutri/react-modal-window/issues)  
+🐛 **GitHub Issues:** Found a bug or have a suggestion? [Open an issue here](https://github.com/khoavutri/react-modal-windows/issues)  
 💬 **Community Chat:** Join the discussion on [Facebook](https://www.facebook.com/company.dev.khoa)

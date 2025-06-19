@@ -10,7 +10,6 @@
 
 .modal .headerContainer {
     cursor: grabbing;
-    background-color: #fff;
     border-bottom: 1px solid #dbd5d5;
     padding: 10px;
     display: flex;
@@ -139,10 +138,6 @@
     display: flex;
     gap: 12px;
     align-items: center;
-    position: fixed;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
     width: fit-content;
     max-width: calc(100% - 60px);
     background-color: #fff;
@@ -154,6 +149,7 @@
     padding-top: 5px;
     z-index: 10000;
     transition: all 0.2s ease;
+    cursor: grab;
 }
 
 .taskbarManager .taskbarButton {

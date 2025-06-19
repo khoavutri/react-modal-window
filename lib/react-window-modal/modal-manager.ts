@@ -75,6 +75,7 @@ export const modalManager: ModalManager = (() => {
     };
 
     const getModalsByTargetKey = (targetKey: string): ModalEntry[] => {
+        if (targetKey === "") return [...stack];
         return [...stack.filter(item => item.targetKey !== undefined &&
             item.targetKey !== null &&
             item.targetKey === targetKey)];

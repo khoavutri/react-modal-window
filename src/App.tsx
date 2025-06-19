@@ -5,13 +5,46 @@ import "./App.css";
 const App = () => {
   const [showOverlay, setShowOverlay] = useState(true);
   const [count, setCount] = useState(1);
+  const [customUI, setCustomUI] = useState(false);
   const arrayFromCount = Array(count)
     .fill(null)
     .map((_, index) => index + 1);
 
+  const customTaskbarStyle = {
+    backgroundColor: "#2d2d2d",
+    color: "#e0e0e0"
+  };
+
+  const customButtonTaskbarStyle = {
+    backgroundColor: "#2d2d2d",
+    color: "#e0e0e0"
+  };
+
   return (
-    <div style={{ position: "relative" }}>
-      <TaskbarManager targetKey="4" />
+    <div style={{
+      position: "relative",
+      backgroundColor: customUI ? "#2d2d2d" : "#fff",
+      height: "calc(100vh - 0px)",
+      width: "100vw",
+      overflow: "hidden",
+      color: customUI ? "#e0e0e0" : "#000",
+    }}>
+      <TaskbarManager
+        targetKey=""
+        canDrag={false}
+        taskButtonStyle={customUI ? customButtonTaskbarStyle : {}}
+        style={{ ...(customUI ? customTaskbarStyle : {}), margin: 20 }}
+      />
+      <TaskbarManager
+        targetKey="0"
+        style={{ flexDirection: "column", ...(customUI ? customTaskbarStyle : {}) }}
+        taskButtonStyle={customUI ? customButtonTaskbarStyle : {}}
+        initialPosition={{ top: 20, left: window.innerWidth - 100 }}
+      />
+      <TaskbarManager
+        targetKey="1"
+        taskButtonStyle={customUI ? customButtonTaskbarStyle : {}}
+        style={customUI ? customTaskbarStyle : {}} />
       <div className="overlay-buttons">
         <button
           className="show-overlay"
@@ -25,7 +58,7 @@ const App = () => {
         <button
           className="custom-ui"
           onClick={() => {
-            setShowOverlay((prev) => !prev);
+            setCustomUI((prev) => !prev);
           }}
         >
           Custom ui
@@ -34,7 +67,7 @@ const App = () => {
         <button
           className="github"
           onClick={() => {
-            window.open("https://github.com", "_blank");
+            window.open("https://github.com/khoavutri/react-window-modal", "_blank");
           }}
         >
           Github
@@ -56,6 +89,7 @@ const App = () => {
           key={item}
           index={item}
           setCount={setCount}
+          customUI={customUI}
         />
       ))}
     </div>

@@ -62,6 +62,10 @@ export const ReactWindowModal = ({
     modal.setTaskbarIcon(taskbarIcon);
   }, [modal.isMaximized]);
 
+  useEffect(() => {
+    modal.setTitle(title || "");
+  }, [])
+
   if (!modal.isOpen) return null;
   let overlay: React.ReactNode = null;
   const contentChildren: React.ReactNode[] = [];

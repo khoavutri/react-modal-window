@@ -10,6 +10,7 @@ export type ModalEntry = {
     setZIndex?: (zIndex: number) => void;
     taskbarIcon?: ReactNode;
     targetKey: string | null | undefined;
+    title?: string;
 };
 
 export type Size = {
@@ -67,7 +68,8 @@ export type ModalContext = {
     setIsMinimized: Dispatch<React.SetStateAction<boolean>>;
     taskbarIcon: ReactNode;
     setTaskbarIcon: Dispatch<React.SetStateAction<ReactNode>>;
-    targetKey: string | null | undefined
+    targetKey: string | null | undefined;
+    setTitle: Dispatch<React.SetStateAction<string>>;
 };
 
 export type Listener = () => void;

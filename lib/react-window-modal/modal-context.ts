@@ -16,6 +16,7 @@ export const useModal = (config?: ModalConfig): ModalContext => {
 
   const minSize = config && config.minSize ? config.minSize : defaultMinSize;
   const ref = useRef<HTMLDivElement>(null);
+  const [title, setTitle] = useState<string>("");
   const [isOpen, setIsOpen] = useState<boolean>(
     config && config?.defaultOpen ? config.defaultOpen : false
   );
@@ -184,14 +185,15 @@ export const useModal = (config?: ModalConfig): ModalContext => {
       setIsMinimized,
       setZIndex,
       taskbarIcon,
-      targetKey: config?.targetKey
+      targetKey: config?.targetKey,
+      title
     });
     return () => modalManager.unregisterModal(id);
   }, [id]);
 
   useEffect(() => {
-    modalManager.updateModal(id, { isOpen, isMinimized, taskbarIcon });
-  }, [isOpen, isMinimized, taskbarIcon]);
+    modalManager.updateModal(id, { isOpen, isMinimized, taskbarIcon, title });
+  }, [isOpen, isMinimized, taskbarIcon, title]);
 
   return {
     id,
@@ -215,6 +217,7 @@ export const useModal = (config?: ModalConfig): ModalContext => {
     setIsMinimized,
     taskbarIcon,
     setTaskbarIcon,
-    targetKey: config?.targetKey
+    targetKey: config?.targetKey,
+    setTitle
   };
 };

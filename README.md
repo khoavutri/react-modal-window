@@ -17,9 +17,7 @@
 
 Explore `react-modal-windows` in action! The demo showcases draggable, resizable modals with a taskbar for managing minimized windows, mimicking a desktop-like interface.
 
-📺 **Live Demo**: [react-modal-windows](https://react-modal-windows.vercel.app/) *(Update with your actual demo link)*
-
-## 🖼️ **Screenshot**: Coming soon...
+📺 **Live Demo**: [react-modal-windows](https://react-modal-windows.vercel.app/)
 
 ## 📜 API
 
@@ -251,5 +249,5 @@ For a complete API reference, see the [GitHub repository](https://github.com/kho
 ## 📞 Support
 
 💌 **Email:** Reach out to me at [khoavutri@gmail.com](mailto:khoavutri@gmail.com)  
-🐛 **GitHub Issues:** Found a bug or have a suggestion? [Open an issue here](https://github.com/khoavutri/react-modal-windows/issues)  
-💬 **Community Chat:** Join the discussion on [Facebook](https://www.facebook.com/company.dev.khoa)
+🐛 **GitHub Issues:** Found a bug or have a suggestion? [Open an issue here](https://github.com/khoavutri/react-modal-windows/issues/1)  
+💬 **Community Chat:** Join the discussion on [Facebook](https://www.facebook.com/khoa.tri.365.org)

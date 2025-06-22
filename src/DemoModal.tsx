@@ -31,7 +31,12 @@ const DemoModal = ({
       modal={modal}
       title={`khoa dev ${index}`}
       style={customUI ? customModalStyle : {}}
-      headerStyle={customUI ? customHeaderStyle : {}}
+      headerStyle={{
+        ...(customUI ? customHeaderStyle : {}),
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between"
+      }}
     >
       {showOverlay && <Overlay onClick={() => modal.close()} />}
       <div

@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, memo } from "react";
 import styles from "./style.module.css";
 import { ModalContext } from "./modal.type";
 
@@ -6,7 +6,7 @@ export type OverlayProps = {
   modal?: ModalContext;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export const Overlay: React.FC<OverlayProps> = ({
+const Overlay: React.FC<OverlayProps> = ({
   modal,
   className = "",
   onClick,
@@ -44,3 +44,5 @@ export const Overlay: React.FC<OverlayProps> = ({
     />
   );
 };
+
+export default memo(Overlay);

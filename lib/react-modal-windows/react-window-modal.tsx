@@ -7,9 +7,9 @@ import React, {
 } from "react";
 import styles from "./style.module.css";
 import { ReactWindowModalProps } from "./modal.type";
-import { Overlay } from "./overlay";
+import Overlay from "./overlay";
 
-export const ReactWindowModal = ({
+const ReactWindowModal = ({
   modal,
   title,
   children,
@@ -258,3 +258,5 @@ export const ReactWindowModal = ({
     </>
   );
 };
+
+export default React.memo(ReactWindowModal);

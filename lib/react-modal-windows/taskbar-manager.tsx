@@ -1,4 +1,4 @@
-import React, { isValidElement, useEffect, useState, useCallback, useRef } from "react";
+import React, { isValidElement, useEffect, useState, useCallback, useRef, memo } from "react";
 import styles from "./style.module.css";
 import { modalManager } from "./modal-manager";
 import { ModalEntry, Position } from "./modal.type";
@@ -24,7 +24,7 @@ type DragState = {
   startPosition: Position;
 };
 
-export const TaskbarManager: React.FC<Props> = ({
+const TaskbarManager: React.FC<Props> = ({
   canDrag,
   initialPosition,
   targetKey,
@@ -361,3 +361,5 @@ export const TaskbarManager: React.FC<Props> = ({
     </div>
   );
 };
+
+export default memo(TaskbarManager);

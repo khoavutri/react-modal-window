@@ -14,7 +14,8 @@ export const useModal = (config?: ModalConfig): ModalContext => {
 
   const initalZIndex =
     config && config.initialZIndex ? config.initialZIndex : 1001;
-
+  const canResize = config?.canResize !== false;
+  const canDrag = config?.canDrag !== false;
   const minSize = config && config.minSize ? config.minSize : defaultMinSize;
   const ref = useRef<HTMLDivElement>(null);
   const [title, setTitle] = useState<string>("");
@@ -47,6 +48,7 @@ export const useModal = (config?: ModalConfig): ModalContext => {
     (e: React.MouseEvent, direction: ResizeDirection) => {
       e.stopPropagation();
       e.preventDefault();
+      if (!canResize) return;
       resizing.current = true;
       startPos.current = { x: e.clientX, y: e.clientY };
       startSize.current = {
@@ -125,6 +127,7 @@ export const useModal = (config?: ModalConfig): ModalContext => {
     (e: React.MouseEvent) => {
       e.preventDefault();
       e.stopPropagation();
+      if (!canDrag) return;
       dragging.current = true;
       dragStart.current = {
         x: e.clientX,

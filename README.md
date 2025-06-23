@@ -79,6 +79,8 @@ The `useModal` hook manages modal state and behavior. It accepts an optional `Mo
 - **`initialZIndex`**: `(Number)` - Initial z-index for the modal. Default is `1001`.
 - **`targetKey`**: `(String)` - Identifier for grouping modals in the taskbar. Optional.
 - **`initialPosition`**: `(Position)` - Initial position `{ top: number, left: number }`. If not set, the modal is centered.
+- **`canDrag`**: `(boolean)` - Determines whether you can drag the modal to a new position. Default is true.
+- **`canResize`**: `(boolean)` - Determines whether you can resize the modal. Default is true.
 
 **Returns**: A `ModalContext` object with properties and methods like `isOpen`, `open`, `close`, `size`, `setSize`, `position`, `onResizeMouseDown`, `onHeaderMouseDown`, `isMaximized`, `isMinimized`, `taskbarIcon`, `setTaskbarIcon`, and more.
 
@@ -87,7 +89,8 @@ The `useModal` hook manages modal state and behavior. It accepts an optional `Mo
 The `ReactWindowModal` component renders a modal window with a header, content, and resize handles. It accepts the following props:
 
 - **`modal`**: `(ModalContext)` - The modal context returned by `useModal`.
-- **`title`**: `(String)` - Modal title displayed in the header.
+- **`title`**: `(String | ReactNode)` - Modal title displayed in the header.
+- **`subTitle`**: `(String | ReactNode)` - Title of the modal shown in the TaskbarManager's icon.
 - **`children`**: `(React.ReactNode)` - Content inside the modal.
 - **`className`**: `(String)` - Additional CSS classes for the modal container.
 - **`style`**: `(React.CSSProperties)` - Custom styles for the modal container.

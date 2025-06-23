@@ -40,6 +40,8 @@ export type ModalConfig = {
     initialZIndex?: number;
     targetKey?: string;
     initialPosition?: Position;
+    canResize?: boolean;
+    canDrag?: boolean;
 };
 
 export const defaultMinSize = {
@@ -75,7 +77,8 @@ export type ModalContext = {
 
 export type ReactWindowModalProps = {
     modal: ModalContext;
-    title?: string;
+    title?: string | ReactNode;
+    subTitle?: string;
     children: React.ReactNode;
     className?: string;
     style?: React.CSSProperties;

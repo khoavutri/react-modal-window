@@ -12,6 +12,7 @@ import Overlay from "./overlay";
 const ReactWindowModal = ({
   modal,
   title,
+  subTitle,
   children,
   className = "",
   style = {},
@@ -51,7 +52,7 @@ const ReactWindowModal = ({
   }, [modal.isMaximized]);
 
   useEffect(() => {
-    modal.setTitle(title || "");
+    modal.setTitle((subTitle) || (typeof title === 'string' ? title : ''));
   }, [])
 
   if (!modal.isOpen) return null;
